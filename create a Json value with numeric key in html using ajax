@@ -1,0 +1,44 @@
+function buildTable(obj){
+
+var table = document.getElementById('myTable');
+
+Object.keys(obj).forEach((prop) =&gt; {
+var row = `&lt;tr&gt;
+&lt;td&gt;${obj[prop]}&lt;/td&gt;
+ &lt;/tr&gt;`
+table.innerHTML += row
+});
+
+}
+
+Simo
+Simola
+email
+This is a comment
+CEO
+Test Company AS
+Mr.
+Football
+
+ ----------------------- 
+function buildTable(obj){
+
+var table = document.getElementById('myTable');
+
+Object.keys(obj).forEach((prop) =&gt; {
+var row = `&lt;tr&gt;
+&lt;td&gt;${obj[prop]}&lt;/td&gt;
+ &lt;/tr&gt;`
+table.innerHTML += row
+});
+
+}
+
+Simo
+Simola
+email
+This is a comment
+CEO
+Test Company AS
+Mr.
+Football
