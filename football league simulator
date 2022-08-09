@@ -1,0 +1,28 @@
+import numpy as np
+import pandas as pd
+from itertools import combinations
+
+def simulate_naive(n_teams):
+  'Simulate a single season'
+  scores = np.zeros(n_teams, dtype=int)
+  for i, j in combinations(range(n_teams), 2):
+      # each pair of teams play twice, each time with 50/50 chance of 
+      # either team winning; the winning team gets three points
+      scores[i if np.random.rand() < 0.5 else j] += 3
+      scores[i if np.random.rand() < 0.5 else j] += 3
+      
+  return scores
+
+n_teams = 8
+n_seasons = 10
+df = pd.DataFrame({season: simulate_naive(n_teams) for season in range(n_seasons)})
+print(df)
+#     0   1   2   3   4   5   6   7   8   9
+# 0  15  30  21  12  24  24   9  21  18  33
+# 1  21  18  24  24  15  21  12  30  18  21
+# 2  21  27  21  18  21  27  27  15  12  24
+# 3  27  12   9  36  18  12  30  15  24  21
+# 4  24  24  27  24  18  18  33  18  30  15
+# 5  18  15  21  15  15  27  15  24  24  15
+# 6  18  18  30  21  33  21  24  27  18  21
+# 7  24  24  15  18  24  18  18  18  24  18
